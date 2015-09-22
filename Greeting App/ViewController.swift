@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var greetingLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,6 +21,20 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func pressMeButtonPressed(sender: AnyObject) {
+        var hour = 12 // this could be the attual time
+        var name = "Chris"
+        
+        if hour >= 8 && hour < 12 {
+            greetingLabel.text = "Good morning \(name)"
+        } else if hour >= 12 && hour < 18 {
+            greetingLabel.text = "Good afternoon \(name)"
+        } else if hour >= 18 && hour < 22 {
+            greetingLabel.text = "Good Evening \(name)"
+        } else {
+            greetingLabel.text = "WTF dude \(name)"
+        }
+    }
 
 }
 
