@@ -22,7 +22,12 @@ class ViewController: UIViewController {
     }
 
     @IBAction func pressMeButtonPressed(sender: AnyObject) {
-        var hour = 12 // this could be the attual time
+        
+        var calendar = NSCalendar.currentCalendar()
+        var timeDateComponents = calendar.components(NSCalendarUnit.HourCalendarUnit |
+            NSCalendarUnit.MinuteCalendarUnit | NSCalendarUnit.SecondCalendarUnit, fromDate: NSDate())
+        
+        var hour = timeDateComponents.hour
         var name = "Chris"
         
         if hour >= 8 && hour < 12 {
